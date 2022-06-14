@@ -35,7 +35,7 @@ class PopulationsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return "add successly";
     }
 
     /**
@@ -70,7 +70,7 @@ class PopulationsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return "updated $id";
     }
 
     /**
@@ -81,6 +81,6 @@ class PopulationsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return "destroyed $id";
     }
 }
