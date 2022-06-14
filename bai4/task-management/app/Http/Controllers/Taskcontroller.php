@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Task;
 use Illuminate\Http\Request;
 
-class PopulationsController extends Controller
+class Taskcontroller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +14,8 @@ class PopulationsController extends Controller
      */
     public function index()
     {
-        // $population=new
-        return view('modules.population.index');
+        $tasks = Task::all();
+        return view('task.index',compact('tasks'));
     }
 
     /**
@@ -24,7 +25,7 @@ class PopulationsController extends Controller
      */
     public function create()
     {
-        return view('modules.population.add');
+        //
     }
 
     /**
@@ -46,9 +47,8 @@ class PopulationsController extends Controller
      */
     public function show($id)
     {
-        return view('modules.population.show');
+        //
     }
-
 
     /**
      * Show the form for editing the specified resource.
@@ -58,7 +58,7 @@ class PopulationsController extends Controller
      */
     public function edit($id)
     {
-        return view('modules.population.edit');
+        //
     }
 
     /**

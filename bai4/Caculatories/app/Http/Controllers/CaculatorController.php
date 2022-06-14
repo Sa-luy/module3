@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class PopulationsController extends Controller
+class CaculatorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +13,7 @@ class PopulationsController extends Controller
      */
     public function index()
     {
-        // $population=new
-        return view('modules.population.index');
+        //
     }
 
     /**
@@ -24,7 +23,7 @@ class PopulationsController extends Controller
      */
     public function create()
     {
-        return view('modules.population.add');
+        //
     }
 
     /**
@@ -46,9 +45,8 @@ class PopulationsController extends Controller
      */
     public function show($id)
     {
-        return view('modules.population.show');
+        //
     }
-
 
     /**
      * Show the form for editing the specified resource.
@@ -58,7 +56,7 @@ class PopulationsController extends Controller
      */
     public function edit($id)
     {
-        return view('modules.population.edit');
+        //
     }
 
     /**
