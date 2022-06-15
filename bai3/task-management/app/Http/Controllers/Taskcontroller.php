@@ -17,7 +17,7 @@ class Taskcontroller extends Controller
     {
         $tasks = Task::all();
         // dd($tasks);
-        return view('task.index', compact('tasks'));
+        return view('task.list', compact('tasks'));
     }
 
     /**
@@ -44,15 +44,13 @@ class Taskcontroller extends Controller
         $task->content = $request->inputContent;
         $task->due_date = $request->inputDueDate;
         $file = $request->inputFile;
-       if ($request->hasFile('inputFile')) {
+        if ($request->hasFile('inputFile')) {
             $image = $request->file('inputFile');
-            $path = $image->store('product', 'public');
+            $path = $image->store('images', 'public');
             $task->image = $path;
-       
         }
-    
-        try 
-        {
+
+        try {
             $task->save();
             $message = "Tạo Task $request->inputTitle thành công!";
             Session::flash('create-success', $message);
