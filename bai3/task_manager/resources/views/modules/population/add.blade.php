@@ -20,40 +20,38 @@
 </head>
 
 <body>
-    <div>
-        <h1>Populations</h1>
-        <table class="table">
-            <thead>
-                <tr class="table">
-                    <td>STT</td>
-                    <td>Họ</td>
-                    <td>Tên</td>
-                    <td>Ngày Sinh</td>
-                </tr>
-            </thead>
-            {{-- @@foreach ($collection as $item) --}}
-            <td><div class="input-group flex-nowrap">
-                <span class="input-group-text" id="addon-wrapping">@</span>
-                <input type="text" class="form-control" placeholder="Họ" aria-label="Username" aria-describedby="addon-wrapping" name="firstname">
-              </div></td>
-            <td><div class="input-group flex-nowrap">
-                <span class="input-group-text" id="addon-wrapping">@</span>
-                <input type="text" class="form-control" placeholder="Tên" aria-label="Username" aria-describedby="addon-wrapping"lastname>
-              </div></td>
-            <td><div class="input-group flex-nowrap">
-                <span class="input-group-text" id="addon-wrapping">@</span>
-                <input type="text" class="form-control" placeholder="Ngày sinh" aria-label="Username" aria-describedby="addon-wrapping">
-              </div></td>
-            <td>
-                <a href="#">Xem</a> | <a href="#">Sửa</a> | <a href="#">Xóa</a& </td>
 
-                    {{-- @endforeach --}}
-                    <tbody>
-
-                    </tbody>
-        </table>
-
-    </div>
-</body>
+    <body>
+        <div class="flex-center position-ref full-height">
+            <div class="content">
+                <div class="title m-b-md">
+                    Add new Task
+                </div>
+                <form class="text-left">
+                    <div class="form-group">
+                        <label for="inputTitle">Task title</label>
+                        <input type="text" class="form-control" id="inputTitle" name="inputTitle" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputContent">Task content</label>
+                        <textarea class="form-control" id="inputContent" name="inputContent" rows="3" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputDueDate">Due Date</label>
+                        <input type="date" class="form-control" id="inputDueDate" name="inputDueDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputFileName">File Name</label>
+                        <input type="text" class="form-control" id="inputFileName" name="inputFileName">
+                        <input type="file" class="form-control-file" id="inputFile" name="inputFile">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+                <hr>
+                <button class="btn btn-secondary" onclick="window.history.go(-1); return false;">Về Trang chủ</button>
+                
+            </div>
+        </div>
+    </body>
 
 </html>

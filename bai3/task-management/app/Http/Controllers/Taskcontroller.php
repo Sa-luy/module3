@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Task;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class Taskcontroller extends Controller
 {
@@ -26,7 +27,7 @@ class Taskcontroller extends Controller
      */
     public function create()
     {
-        //
+        return view(' task.add');
     }
 
     /**
@@ -37,7 +38,28 @@ class Taskcontroller extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $task = new Task();
+
+        $task->title = $request->inputTitle;
+        $task->content = $request->inputContent;
+        $task->due_date = $request->inputDueDate;
+        $file = $request->inputFile;
+       if ($request->hasFile('inputFile')) {
+            $image = $request->file('inputFile');
+            $path = $image->store('product', 'public');
+            $task->image = $path;
+       
+        }
+    
+        try 
+        {
+            $task->save();
+            $message = "Tạo Task $request->inputTitle thành công!";
+            Session::flash('create-success', $message);
+            return redirect()->route('tasks.index', compact('message'));
+        } catch (\Exception $e) {
+            echo 'khongthang cong', $e->getMessage();
+        }
     }
 
     /**

@@ -92,8 +92,8 @@
                 Task Management
             </div>
             <div class="links">
-                <a href="{{route('tasks.index')}}">Add new task</a>
-                <a href="#">Tasks list</a>
+                <a href="{{ route('tasks.index') }}">Add new task</a>
+                <a href="{{ route('tasks.create') }}">Tasks list</a>
             </div>
         </div>
     </div>

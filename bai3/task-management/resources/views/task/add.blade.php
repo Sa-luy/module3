@@ -7,9 +7,11 @@
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>List Tasks</title>
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
     <!-- CSS -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
 </head>
@@ -18,42 +20,33 @@
     <div class="flex-center position-ref full-height">
         <div class="content">
             <div class="title m-b-md">
-                Tasks List
+                Add new Task
             </div>
-
-            <table class="table">
-                @if (empty($tasks))
-                    <h5>Không có dữ liệu</h5>
-                @else
-                    <thead>
-                        <tr>
-                            <th scope="col">STT</th>
-                            <th scope="col">Title</th>
-                            <th scope="col">Content</th>
-                            <th scope="col">due_date</th>
-                            <th scope="col">image</th>
-                        </tr>
-                    </thead>
-                    @foreach ($tasks as $key => $item)
-                        <tbody>
-                            <tr>
-                                <td scope="row">{{ $key }}</td>
-                                <td scope="row">{{ $item->title }}</td>
-                                <td scope="row">{{ $item->content }}</td>
-                                <td scope="row">{{ $item->due_date }}</td>
-                                <td>
-                                    @if ($item->image)
-                                        <img src="storage/{{ $item->image }}" style="width: 100px; height: 100px">
-                                    @else
-                                        {{ 'Chưa có ảnh' }}
-                                    @endif
-                                </td>
-                            </tr>
-                        </tbody>
-                    @endforeach
-                @endif
-            </table>
-
+            <form class="text-left" action="{{ route('tasks.store') }}" method="POST"
+                enctype="multipart/form-data">
+                @csrf
+                <div class="form-group">
+                    <label for="inputTitle">Task title</label>
+                    <input type="text" class="form-control" id="inputTitle" name="inputTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="inputContent">Task content</label>
+                    <textarea class="form-control" id="inputContent" name="inputContent" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="inputDueDate">Due Date</label>
+                    <input type="date" class="form-control" id="inputDueDate" name="inputDueDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="inputFileName">File Name</label>
+                    <input type="text" class="form-control" id="inputFileName" name="image">
+                    <input type="file" class="form-control-file" id="inputFile" name="inputFile">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            <hr>
+            <button class="btn btn-secondary" onclick="window.history.go(-1); return false;">Back</button>
+            < Back</a>
         </div>
     </div>
     <!-- Bootstrap JS -->

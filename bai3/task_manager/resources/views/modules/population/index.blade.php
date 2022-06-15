@@ -32,7 +32,6 @@
                 </tr>
             </thead>
             {{-- @@foreach ($collection as $item) --}}
-            @each('hh')
             <td>1</td>
             <td>Le kim</td>
             <td>chon</td>
